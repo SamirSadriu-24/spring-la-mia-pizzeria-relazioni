@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <th:block th:insert="~{fragments/common.html :: style}"></th:block>
+</head>
+
+<body class="background-esteso container-pagina-singola">
+    <th:block th:insert="~{fragments/common.html :: navbar}" />
+    <div class="container singola-pizza-container">
+        <h2 th:text="${pizza.name}" />
+        <img th:src="${pizza.photoUrl}" alt="Foto Pizza" width="200" />
+        <p th:text="${pizza.description}" />
+        <p>Prezzo: <span th:text="${pizza.price}" /> €</p>
+        <a th:href="@{/pizzas}">Torna alla lista</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www-thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:insert="~{fragments/common.html :: style}">
+    </th:block>
+    <title>Pizzeria MammaMia!</title>
+</head>
+<body class="background">
+    <header>
+        <th:block th:insert="~{fragments/common.html :: navbar}">
+
+        </th:block>
+
+    </header>
+    <main>
+        <div class="container homepage-container">
+            <h1 class=" text-uppercase text-center mt-5 text-white">Benvenuto alla Pizzeria MammaMia!</h1>
+            <a class="align-self-center" th:href="@{/pizzas}"> Scopri le nostre pizze!</a>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

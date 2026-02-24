@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <th:block th:insert="~{fragments/common.html :: style}"></th:block>
+</head>
+
+<body>
+    <div class="background-esteso">
+        <th:block th:insert="~{fragments/common.html :: navbar}"></th:block>
+        <div class="create-container">
+            <div class="form-container">
+                <form id="pizza-form" th:object="${pizza}" th:action="@{/pizzas/update/{id}(id=${pizza.id})}"
+                    method="post">
+                    <input type="hidden" th:field="*{id}">
+                    <ul>
+                        <li th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
+                    </ul>
+                    <div class="form-group">
+                        <label for="name">Nome della pizza</label>
+                        <input class="form-control" type="text" id="name" th:field="*{name}">
+
+                        <label for="description">Descrivi la tua pizza!</label>
+                        <textarea class="form-control" id="description" th:field="*{description}"></textarea>
+
+                        <label for="photoUrl">Inserisci l'url della immagine per la tua pizza</label>
+                        <input class="form-control" type="url" id="photoUrl" th:field="*{photoUrl}">
+
+                        <label for="price">Inserisci il prezzo per la pizza!</label>
+                        <input class="form-control" type="number" min="1" max="99" th:field="*{price}" step="0.01">
+                        <button class="button-center" type="submit">Aggiorna Pizza</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
