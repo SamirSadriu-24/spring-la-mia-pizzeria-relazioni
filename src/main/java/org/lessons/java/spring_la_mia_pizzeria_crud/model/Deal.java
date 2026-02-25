@@ -13,7 +13,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table( name = "Deals")
+@Table(name = "Deals")
 public class Deal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,34 +21,42 @@ public class Deal {
 
     @NotBlank(message = "L'offerta deve avere un nome!")
     private String title;
-    
+
     @NotNull(message = "L'offerta richiede una data d'inizio")
     private LocalDate startDate;
-    
+
     @NotNull(message = "L'offerta richiede una data di scadenza")
     private LocalDate endDate;
-    
-    public void setTitle(String title){
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setTitle(String title) {
         this.title = title;
     }
-    
-    public void setStart(LocalDate startDate){
+
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public void setEnd(LocalDate endDate){
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return this.title;
     }
 
-    public LocalDate getStart(){
+    public LocalDate getStartDate() {
         return this.startDate;
     }
 
-    public LocalDate getEnd(){
+    public LocalDate getEndDate() {
         return this.endDate;
     }
 
@@ -57,10 +65,10 @@ public class Deal {
     private Pizza pizza;
 
     public Pizza getPizza() {
-    return pizza;
+        return pizza;
     }
 
     public void setPizza(Pizza pizza) {
-    this.pizza = pizza;
+        this.pizza = pizza;
     }
 }
