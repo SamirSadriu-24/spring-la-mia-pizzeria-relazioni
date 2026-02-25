@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -22,11 +23,16 @@ public class Deal {
     @NotBlank(message = "L'offerta deve avere un nome!")
     private String title;
 
+    @FutureOrPresent(message = "La data di inizio non può essere nel passato")
     @NotNull(message = "L'offerta richiede una data d'inizio")
     private LocalDate startDate;
 
     @NotNull(message = "L'offerta richiede una data di scadenza")
     private LocalDate endDate;
+
+    @NotBlank
+    private String descrizione;
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -48,6 +54,10 @@ public class Deal {
         this.endDate = endDate;
     }
 
+    public void setDescrizione(String descrizione){
+        this.descrizione = descrizione;
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -58,6 +68,10 @@ public class Deal {
 
     public LocalDate getEndDate() {
         return this.endDate;
+    }
+
+    public String getDescrizione(){
+        return this.descrizione;
     }
 
     @ManyToOne

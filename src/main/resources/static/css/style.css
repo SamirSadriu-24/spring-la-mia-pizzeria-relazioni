@@ -203,3 +203,18 @@ nav {
         background-color: rgb(149, 49, 48);
     }
 }
+
+.error-info{
+    color:black;
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px;
+    list-style-type: none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+

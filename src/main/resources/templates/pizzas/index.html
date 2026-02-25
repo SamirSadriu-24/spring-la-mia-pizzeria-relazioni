@@ -12,16 +12,25 @@
     <th:block th:insert="~{fragments/common.html :: navbar}" />
     <div class="container">
         <h2 class="text-center text-white text-uppercase mt-5 mb-5">Le nostre pizze!</h2>
-        <div class="container card-container">
+        <div class="container card-container d-flex flex-wrap">
             <div class="card" th:each="pizza : ${pizzas}" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${pizza.name}"></h5>
-                    <img th:src="${pizza.photoUrl}" alt="Pizza"/>
+                    <th:block th:if="${!#lists.isEmpty(pizza.deals)}">
+                        <ul class="list-unstyled">
+                            <div class="d-flex gap-1" th:each="deal : ${pizza.deals}">
+                                <span class ="badge text-bg-danger" th:text="${deal.title}"></span>
+                                <a class="badge text-bg-light"th:href="@{/deals/update/{id}(id=${deal.id})}">Modifica l'offerta</a>
+                                <form action="#" th:action="@{/deals/delete/{id}(id=${deal.id})}" method="post"><button type="submit" clas="badge text-bg-danger"><i class="fa-solid fa-trash-can"></i></button></form>
+                            </div>
+                        </ul>
+                    </th:block>
+                    <img th:src="${pizza.photoUrl}" alt="Pizza" />
                     <p class="card-text" th:text="${pizza.description}"></p>
                     <div class="link-container">
                         <a th:href="@{/pizzas/{id}(id=${pizza.id})}" class="card-link">vedi in dettaglio</a>
                         <a th:href="@{/pizzas/update/{id}(id=${pizza.id})}">Modifica la tua pizza</a>
-                        <form action="#" th:action="@{/pizzas/delete/{id}(id=${pizza.id})}" method="post">  
+                        <form action="#" th:action="@{/pizzas/delete/{id}(id=${pizza.id})}" method="post">
                             <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
                         </form>
                     </div>

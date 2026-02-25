@@ -47,7 +47,7 @@ public class PizzaController {
     @PostMapping("/create")
     public String store(@Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
-            return "/pizzas/create";
+            return "pizzas/create";
         }
         repository.save(formPizza);
 
