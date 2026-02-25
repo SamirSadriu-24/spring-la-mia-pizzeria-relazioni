@@ -43,7 +43,7 @@ nav {
         color: white;
         text-decoration: none;
         padding: 10px;
-        border-radius:5px;
+        border-radius: 5px;
     }
 
     a:visited {
@@ -91,7 +91,7 @@ nav {
     gap: 2px;
 
 
-    a{
+    a {
         color: white;
         background-color: rgb(255, 84, 82);
         text-decoration: none;
@@ -100,17 +100,18 @@ nav {
         border-radius: 5px;
     }
 
-    button{
+    button {
         width: 50px;
         height: 100%;
         background-color: rgb(255, 84, 82);
-        color:white;
-        border:none;
+        color: white;
+        border: none;
         font-size: larger;
         border-radius: 5px;
     }
 
-    a:hover, button:hover{
+    a:hover,
+    button:hover {
         background-color: rgb(149, 49, 48);
     }
 }
@@ -120,6 +121,11 @@ nav {
 .container-pagina-singola {
     width: 100%;
     height: 100vh;
+}
+
+img.foto_dettaglio {
+    height: 350px !important;
+    width: 400px !important;
 }
 
 .singola-pizza-container {
@@ -154,7 +160,7 @@ nav {
         padding: 10px
     }
 
-    a:hover{
+    a:hover {
         background-color: rgb(149, 49, 48);
     }
 }
@@ -166,7 +172,7 @@ nav {
 }
 
 .form-container {
-    margin-top:10vh;
+    margin-top: 10vh;
     width: 100%;
     display: flex;
     height: auto;
@@ -175,46 +181,46 @@ nav {
     align-items: center;
     /* text-align: center; */
 
-    label{
+    label {
         margin: 10px 0;
-        padding:5px;
+        padding: 5px;
         background-color: rgb(255, 84, 82);
         border-radius: 5px;
-        color:white;
+        color: white;
     }
 
-    input:focus, textarea:focus{
+    input:focus,
+    textarea:focus {
         border-color: rgb(255, 84, 82);
-        outline:none;
+        outline: none;
         box-shadow: 0 0 5px rgba(255, 84, 82, 0.8);
     }
 
-    .button-center{
+    .button-center {
         width: 100%;
         margin-top: 20px;
-        padding:5px;
+        padding: 5px;
         background-color: rgb(255, 84, 82);
-        border:none;
-        color:white;
-        border-radius:5px;
+        border: none;
+        color: white;
+        border-radius: 5px;
     }
 
-    button:hover{
+    button:hover {
         background-color: rgb(149, 49, 48);
     }
 }
 
-.error-info{
-    color:black;
+.error-info {
+    color: black;
     font-size: larger;
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
     padding: 5px;
     list-style-type: none;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-

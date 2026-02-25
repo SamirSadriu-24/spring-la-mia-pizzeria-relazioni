@@ -10,12 +10,26 @@
 
 <body class="background-esteso container-pagina-singola">
     <th:block th:insert="~{fragments/common.html :: navbar}" />
-    <div class="container singola-pizza-container p-3">
-        <div class="card-container">
+    <div class="container singola-pizza-container">
+        <div class="card-container mt-3">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-dark" th:text="${pizza.name}" />
-                    <img th:src="${pizza.photoUrl}" alt="Foto Pizza" width="200" />
+                    <p class="card-title text-dark fs-4" th:text="${pizza.name}" />
+                    <th:block th:if="${!#lists.isEmpty(pizza.deals)}">
+                        <ul class="list-unstyled d-flex flex-column gap-2">
+                            <div class="d-flex gap-1" th:each="deal : ${pizza.deals}">
+                                <span class="badge text-bg-danger" th:text="${deal.title}"></span>
+                                <a class="badge text-bg-light" th:href="@{/deals/update/{id}(id=${deal.id})}">Modifica
+                                    l'offerta</a>
+                                <form action="#" th:action="@{/deals/delete/{id}(id=${deal.id})}" method="post">
+                                    <button type="submit" clas="badge text-bg-danger">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </ul>
+                    </th:block>
+                    <img class="foto_dettaglio" th:src="${pizza.photoUrl}" alt="Foto Pizza" width="150" />
                     <p th:text="${pizza.description}" />
                     <p>Prezzo: <span th:text="${pizza.price}" /> €</p>
                     <a th:href="@{/deals/create/{id}(id=${pizza.id})}">Aggiungi una Offerta!</a>
