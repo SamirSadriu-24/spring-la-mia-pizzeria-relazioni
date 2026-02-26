@@ -1,5 +1,6 @@
 package org.lessons.java.spring_la_mia_pizzeria_crud.controller;
 
+import org.lessons.java.spring_la_mia_pizzeria_crud.model.Ingredient;
 import org.lessons.java.spring_la_mia_pizzeria_crud.model.Pizza;
 import org.lessons.java.spring_la_mia_pizzeria_crud.repository.IngredientRepository;
 import org.lessons.java.spring_la_mia_pizzeria_crud.repository.PizzaRepository;
@@ -81,7 +82,6 @@ public class PizzaController {
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable("id") Integer id) {
-
         repository.deleteById(id);
 
         return "redirect:/pizzas";

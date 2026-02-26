@@ -11,9 +11,9 @@
 <body>
     <div class="background-esteso container-pagina-singola-create">
         <th:block th:insert="~{fragments/common.html :: navbar}"></th:block>
-        <div class="create-container">
-            <div class="form-container">
-                <form id="pizza-form" th:object="${pizza}" th:action="@{/pizzas/create}" method="post">
+        <div class="create-container d-flex flex-column align-content-center justify-content-center">
+            <div class="form-container justify-center align-center">
+                <form class="d-flex align-center"id="pizza-form" th:object="${pizza}" th:action="@{/pizzas/create}" method="post">
                     <ul>
                         <li th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
                     </ul>
@@ -28,7 +28,7 @@
                         <input class="form-control" type="url" id="photoUrl" th:field="*{photoUrl}">
                         <label for="price">Inserisci il prezzo per la pizza!</label>
                         <input class="form-control" type="number" min="1" max="99" th:field="*{price}" step="0.01">
-                        <div class="form-group mt-3 d-flex justify-center align-center text-center me-2 gap-2">
+                        <div class="form-group mt-3 d-flex justify-center align-center text-center me-2 gap-2 flex-wrap w-100">
                             <label>Scegli gli Ingredienti</label>
                             <div th:each="ingredient : ${ingredients}" class="form-check d-flex align-items-center mb-2 pe-2 gap-1">
                                 <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"

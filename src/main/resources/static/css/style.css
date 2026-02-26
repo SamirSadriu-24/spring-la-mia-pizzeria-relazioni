@@ -83,7 +83,7 @@ nav {
     background-image: url("../img/backgroundhomepage.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat:no-repeat;
 }
 
 .card-body .link-container {
@@ -169,7 +169,7 @@ img.foto_dettaglio {
 /* create pagina */
 .create-container {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 }
 
 .form-container {

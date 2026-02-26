@@ -34,7 +34,7 @@
                         <div class="form-group mt-3 d-flex justify-center align-center text-center me-2 gap-2">
                             <label>Scegli gli Ingredienti</label>
                             <div th:each="ingredient : ${ingredients}"
-                                class="form-check d-flex align-items-center mb-2 pe-2 gap-1">
+                                class="form-check d-flex align-items-center mb-2 pe-2 gap-1 flex-wrap">
                                 <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"
                                     th:id="|ingredient_${ingredient.id}|" class="form-check-input">
                                 <label th:for="|ingredient_${ingredient.id}|" th:text="${ingredient.name}"
