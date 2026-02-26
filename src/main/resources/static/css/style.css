@@ -124,8 +124,8 @@ nav {
 }
 
 img.foto_dettaglio {
-    height: 350px !important;
-    width: 400px !important;
+    height: 250px !important;
+    width: 300px !important;
 }
 
 .singola-pizza-container {
@@ -133,6 +133,7 @@ img.foto_dettaglio {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height:auto;
 
     h2 {
         color: white;
@@ -223,4 +224,8 @@ img.foto_dettaglio {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.container-pagina-singola-create{
+    background-size: cover;
 }

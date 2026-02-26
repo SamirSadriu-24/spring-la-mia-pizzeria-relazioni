@@ -12,7 +12,7 @@
     <th:block th:insert="~{fragments/common.html :: navbar}" />
     <div class="container">
         <h2 class="text-center text-white text-uppercase mt-5 mb-5">Le nostre pizze!</h2>
-        <div class="container card-container d-flex flex-wrap">
+        <div class="container card-container d-flex flex-wrap justify-content-center">
             <div class="card" th:each="pizza : ${pizzas}" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${pizza.name}"></h5>
@@ -20,11 +20,6 @@
                         <ul class="list-unstyled d-flex flex-column gap-2">
                             <div class="d-flex" th:each="deal : ${pizza.deals}">
                                 <span class="badge text-bg-danger" th:text="${deal.title}"></span>
-                                <!-- <a class="badge text-bg-light" th:href="@{/deals/update/{id}(id=${deal.id})}">Modifica
-                                    l'offerta</a> -->
-                                <!-- <form action="#" th:action="@{/deals/delete/{id}(id=${deal.id})}" method="post"><button
-                                        type="submit" clas="badge text-bg-danger"><i
-                                            class="fa-solid fa-trash-can"></i></button></form> -->
                             </div>
                         </ul>
                     </th:block>

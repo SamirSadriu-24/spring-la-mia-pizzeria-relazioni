@@ -10,8 +10,9 @@
 
 <body class="background-esteso container-pagina-singola">
     <th:block th:insert="~{fragments/common.html :: navbar}" />
-    <div class="container singola-pizza-container">
-        <div class="card-container mt-3">
+    <div
+        class="container singola-pizza-container container-pagina-singola-create d-flex justify-content-center align-items-center">
+        <div class="card-container my-3 mb-2">
             <div class="card">
                 <div class="card-body">
                     <p class="card-title text-dark fs-4" th:text="${pizza.name}" />
@@ -32,12 +33,18 @@
                     <img class="foto_dettaglio" th:src="${pizza.photoUrl}" alt="Foto Pizza" width="150" />
                     <p th:text="${pizza.description}" />
                     <p>Prezzo: <span th:text="${pizza.price}" /> €</p>
+                    <div class="d-flex flex-row gap-2 my-2" th:if="${pizza.ingredients.size() > 0}">
+                        <h6>Ingredienti:</h6>
+                        <div th:each="ingredient : ${pizza.ingredients}" th:text="${ingredient.name}">
+                            </li>
+                        </div>
+                    </div>
+                    <a th:href="@{/pizzas/update/{id}(id=${pizza.id})}">Modifica la tua pizza</a>
                     <a th:href="@{/deals/create/{id}(id=${pizza.id})}">Aggiungi una Offerta!</a>
                     <a th:href="@{/pizzas}">Torna alla lista</a>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

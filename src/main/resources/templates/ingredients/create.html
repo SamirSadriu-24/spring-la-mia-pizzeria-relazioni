@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crea ingredienti</title>
+    <th:block th:insert="~{fragments/common.html :: style}"></th:block>
+</head>
+
+<body>
+    <div class="background-esteso container-pagina-singola-create">
+        <th:block th:insert="~{fragments/common.html :: navbar}"></th:block>
+        <div class="create-container">
+            <div class="form-container">
+                <form id="pizza-form" th:object="${ingredient}" th:action="@{/ingredients/create}" method="post">
+                    <th:block>
+                        <th:block th:if="${#fields.allErrors()}">
+                            <ul class="error-info">
+                                <li th:each="err : ${#fields.allErrors()}" th:text="${err}"></li>
+                            </ul>
+                        </th:block>
+                    </th:block>
+                    <div class="form-group text-center d-flex flex-column gap-4">
+                        <div class="d-flex flex-column">
+                            <label for="title">Nome dell'ingrediente da aggiungere</label>
+                            <input class="form-control" type="text" id="nome" th:field="*{name}">
+                        </div>
+                        <button class="button-center" type="submit">Salva Ingrediente</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

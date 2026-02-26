@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping("/deals")
-public class DealsController {
+public class DealController {
 
     @Autowired
     private DealRepository dealRepository;

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="background-esteso">
+    <div class="background-esteso container-pagina-singola-create">
         <th:block th:insert="~{fragments/common.html :: navbar}"></th:block>
         <div class="create-container">
             <div class="form-container">
@@ -26,9 +26,17 @@
 
                         <label for="photoUrl">Inserisci l'url della immagine per la tua pizza</label>
                         <input class="form-control" type="url" id="photoUrl" th:field="*{photoUrl}">
-
                         <label for="price">Inserisci il prezzo per la pizza!</label>
                         <input class="form-control" type="number" min="1" max="99" th:field="*{price}" step="0.01">
+                        <div class="form-group mt-3 d-flex justify-center align-center text-center me-2 gap-2">
+                            <label>Scegli gli Ingredienti</label>
+                            <div th:each="ingredient : ${ingredients}" class="form-check d-flex align-items-center mb-2 pe-2 gap-1">
+                                <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"
+                                    th:id="|ingredient_${ingredient.id}|" class="form-check-input">
+                                <label th:for="|ingredient_${ingredient.id}|" th:text="${ingredient.name}"
+                                    class="form-check-label"></label>
+                            </div>
+                        </div>
                         <button class="button-center" type="submit">Crea Pizza</button>
                 </form>
             </div>

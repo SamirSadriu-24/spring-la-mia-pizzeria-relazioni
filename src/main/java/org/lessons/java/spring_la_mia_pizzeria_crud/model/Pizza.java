@@ -2,13 +2,18 @@ package org.lessons.java.spring_la_mia_pizzeria_crud.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMax;
@@ -93,5 +98,21 @@ public class Pizza {
 
     public void setDeals(List<Deal> deals) {
     this.deals = deals;
+    }
+
+    @ManyToMany
+    @JoinTable(
+        name = "ingredient_pizza",
+        joinColumns = @JoinColumn(name = "pizza_id"),
+        inverseJoinColumns = {@JoinColumn(name = "ingredient_id")}
+    )
+    private Set<Ingredient> ingredients = new HashSet<>();
+
+    public void setIngredients(Set<Ingredient> ingredients){
+        this.ingredients = ingredients;
+    }
+    
+    public Set<Ingredient> getIngredients(){
+        return ingredients;
     }
 }
